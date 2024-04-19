@@ -21,55 +21,69 @@ addEventHandler('onClientResourceStart', resourceRoot,
 			checkpoint = dxText:create('0/0', screenWidth - 15, screenHeight - 54, false, 'bankgothic', 0.8, 'right'),
 			timepassed = dxText:create('0:00:00', screenWidth - 10, screenHeight - 25, false, 'bankgothic', 0.7, 'right'),
 			
+			PingDisplay = dxText:create('Ping:', 4, screenHeight - 130, false, 'default-bold', 1.2, 'left'),
+			PingDisplayCount = dxText:create('0', 45, screenHeight - 130, false, 'default-bold', 1.2, 'left'),
+			
+			FPSDisplay = dxText:create('FPS:', 4, screenHeight - 110, false, 'default-bold', 1.2, 'left'),
+			FPSDisplayCount = dxText:create('0', 45, screenHeight - 110, false, 'default-bold', 1.2, 'left'),
+			
+			NextDisplay = dxText:create('Next:', 4, screenHeight - 90, false, 'default-bold', 1.2, 'left'),
+			NextDisplayName = dxText:create('<Next Map Name>', 45, screenHeight - 90, false, 'default-bold', 1.2, 'left'),
+			
+			ConfDisplay = dxText:create('Conf:', 4, screenHeight - 70, false, 'default-bold', 1.2, 'left'),
+			ConfGDisplay = dxText:create('Gm', 45, screenHeight - 70, false, 'default-bold', 1.2, 'left'),
+			ConfRDisplay = dxText:create('Rs', 75, screenHeight - 70, false, 'default-bold', 1.2, 'left'),
+			ConfWDisplay = dxText:create('Vw', 99, screenHeight - 70, false, 'default-bold', 1.2, 'left'),
+			
+			AuthorDisplay = dxText:create('By:', 4, screenHeight - 50, false, 'default-bold', 1.2, 'left'),
+			AuthorDisplayName = dxText:create('<Map Author Name>', 45, screenHeight - 50, false, 'default-bold', 1.2, 'left'),
+			
+			MapDisplay = dxText:create('Map:', 4, screenHeight - 30, false, 'default-bold', 1.2, 'left'),
+			MapDisplayName = dxText:create('<Map Name>', 45, screenHeight - 30, false, 'default-bold', 1.2, 'left'),
+			
 			FileDisplay = dxText:create('File:', 4, screenHeight - 10, false, 'default-bold', 1.2, 'left'),
-			FileDisplayName = dxText:create('FILENAME', 45, screenHeight - 10, false, 'default-bold', 1.2, 'left'),
-			
-			authordisplay = dxText:create('By:', 4, screenHeight - 30, false, 'default-bold', 1.2, 'left'),
-			authordisplayName = dxText:create('AUTHOR', 45, screenHeight - 30, false, 'default-bold', 1.2, 'left'),
-
-			mapdisplay = dxText:create('Map:', 4, screenHeight - 50, false, 'default-bold', 1.2, 'left'),
-			mapdisplayName = dxText:create('MAPNAME', 45, screenHeight - 50, false, 'default-bold', 1.2, 'left'),
-			
-			nextdisplay = dxText:create('Next:', 4, screenHeight - 70, false, 'default-bold', 1.2, 'left'),
-			nextdisplayName = dxText:create('NEXT', 45, screenHeight - 70, false, 'default-bold', 1.2, 'left'),
-			
-			-- PingDisplay = dxText:create('Ping:', 4, screenHeight - 90, false, 'default-bold', 1.2, 'left'),
-			-- PingDisplayCount = dxText:create('0', 45, screenHeight - 90, false, 'default-bold', 1.2, 'left'),
-			
-			-- FPSDisplay = dxText:create('FPS:', 4, screenHeight - 110, false, 'default-bold', 1.2, 'left'),
-			-- FPSDisplayCount = dxText:create('0', 45, screenHeight - 110, false, 'default-bold', 1.2, 'left'),
+			FileDisplayName = dxText:create('<Map Resource Folder Name>', 45, screenHeight - 10, false, 'default-bold', 1.2, 'left'),
 		}
 		
-		g_dxGUI.mapdisplay:color(150, 150, 150, 255)
-		g_dxGUI.mapdisplay:type('stroke', 1.5)
-		g_dxGUI.mapdisplayName:color(255, 255, 255, 255)
-		g_dxGUI.mapdisplayName:type('stroke', 1.5)
-
-		g_dxGUI.authordisplay:color(150, 150, 150, 255)
-		g_dxGUI.authordisplay:type('stroke', 1.5)
-		g_dxGUI.authordisplayName:color(255, 255, 255, 255)
-		g_dxGUI.authordisplayName:type('stroke', 1.5)
-
-		g_dxGUI.nextdisplay:color(150, 150, 150, 255)
-		g_dxGUI.nextdisplay:type('stroke', 1.5)
-		g_dxGUI.nextdisplayName:color(255, 255, 255, 255)
-		g_dxGUI.nextdisplayName:type('stroke', 1.5)
-
-		-- g_dxGUI.FPSDisplay:color(150, 150, 150, 255)
-		-- g_dxGUI.FPSDisplay:type('stroke', 1.5)
-		-- g_dxGUI.FPSDisplayCount:color(255, 255, 255, 255)
-		-- g_dxGUI.FPSDisplayCount:type('stroke', 1.5)
-
-		-- g_dxGUI.PingDisplay:color(150, 150, 150, 255)
-		-- g_dxGUI.PingDisplay:type('stroke', 1.5)
-		-- g_dxGUI.PingDisplayCount:color(255, 255, 255, 255)
-		-- g_dxGUI.PingDisplayCount:type('stroke', 1.5)
+		g_dxGUI.PingDisplay:color(245, 222, 179, 255)
+		g_dxGUI.PingDisplay:type('stroke', 1.5)
+		g_dxGUI.PingDisplayCount:color(255, 255, 255, 255)
+		g_dxGUI.PingDisplayCount:type('stroke', 1.5)
 		
-		g_dxGUI.FileDisplay:color(150, 150, 150, 255)
+		g_dxGUI.FPSDisplay:color(245, 222, 179, 255)
+		g_dxGUI.FPSDisplay:type('stroke', 1.5)
+		g_dxGUI.FPSDisplayCount:color(255, 255, 255, 255)
+		g_dxGUI.FPSDisplayCount:type('stroke', 1.5)
+		
+		g_dxGUI.NextDisplay:color(245, 222, 179, 255)
+		g_dxGUI.NextDisplay:type('stroke', 1.5)
+		g_dxGUI.NextDisplayName:color(255, 255, 255, 255)
+		g_dxGUI.NextDisplayName:type('stroke', 1.5)
+		
+		g_dxGUI.ConfDisplay:color(245, 222, 179, 255)
+		g_dxGUI.ConfGDisplay:color(127, 127, 127, 255)
+		g_dxGUI.ConfRDisplay:color(127, 127, 127, 255)
+		g_dxGUI.ConfWDisplay:color(127, 127, 127, 255)
+		g_dxGUI.ConfDisplay:type('stroke', 1.5)
+		g_dxGUI.ConfGDisplay:type('stroke', 1.5)
+		g_dxGUI.ConfRDisplay:type('stroke', 1.5)
+		g_dxGUI.ConfWDisplay:type('stroke', 1.5)
+		
+		g_dxGUI.AuthorDisplay:color(245, 222, 179, 255)
+		g_dxGUI.AuthorDisplay:type('stroke', 1.5)
+		g_dxGUI.AuthorDisplayName:color(255, 255, 255, 255)
+		g_dxGUI.AuthorDisplayName:type('stroke', 1.5)
+		
+		g_dxGUI.MapDisplay:color(245, 222, 179, 255)
+		g_dxGUI.MapDisplay:type('stroke', 1.5)
+		g_dxGUI.MapDisplayName:color(255, 255, 255, 255)
+		g_dxGUI.MapDisplayName:type('stroke', 1.5)
+		
+		g_dxGUI.FileDisplay:color(245, 222, 179, 255)
 		g_dxGUI.FileDisplay:type('stroke', 1.5)
 		g_dxGUI.FileDisplayName:color(255, 255, 255, 255)
 		g_dxGUI.FileDisplayName:type('stroke', 1.5)
-
+		
 		g_dxGUI.ranknum:type('stroke', 2, 0, 0, 0, 255)
 		g_dxGUI.ranksuffix:type('stroke', 2, 0, 0, 0, 255)
 		g_dxGUI.checkpoint:type('stroke', 1, 0, 0, 0, 255)
@@ -204,9 +218,9 @@ end
 
 function TravelScreen.show( mapName, authorName, description )
 	TravelScreen.startTime = getTickCount()
-	g_dxGUI['travelText2']:text(mapName)
-	g_dxGUI['travelText3']:text(authorName and "Author: " .. authorName or "")
-	g_dxGUI['travelText4']:text(description or "TEXT")
+	g_dxGUI['travelText2']:text(mapName or "<No Map Name>")
+	g_dxGUI['travelText3']:text(authorName and "Author: " .. authorName or "<No Map Author Name>")
+	g_dxGUI['travelText4']:text(description or "<No Map Description>")
 	showGUIComponents('travelText1', 'travelText2', 'travelText3', 'travelText4', 'travelImage')
 	guiMoveToBack(g_GUI['travelImage'])
 end
@@ -216,7 +230,7 @@ function TravelScreen.showDetails( ghostmode, vehicleweapons, respawn, allowonfo
 	text5 = text5 .. (ghostmode and "◼ Ghost mode\n" or "◻ Ghost mode\n")
 	text5 = text5 .. (respawn == 'timelimit' and "◼ Respawn\n" or "◻ Respawn\n")
 	text5 = text5 .. (vehicleweapons and "◼ Vehicle weapons\n" or "◻ Vehicle weapons\n")
-	text5 = text5 .. (allowonfoot and "◼ Exiting vehicles\n" or "◻ exiting vehicles\n")
+	text5 = text5 .. (allowonfoot and "◼ Exiting vehicles\n" or "◻ Exiting vehicles\n")
 	local text6 = ""
 	if (allowonfoot) then
 		text6 = text6 .. (falloffbike and "◼ Fall off bikes\n" or "◻ Fall off bikes\n")
@@ -264,10 +278,26 @@ function initRace(vehicle, checkpoints, objects, pickups, mapoptions, ranked, du
 	g_PlayerInfo = playerInfo
 	triggerEvent('onClientMapStarting', localPlayer, mapinfo )
 	
-	g_dxGUI.authordisplayName:text(g_MapInfo.author or "<none>")
-	g_dxGUI.mapdisplayName:text(g_MapInfo.name or "<none>")
+	g_dxGUI.NextDisplayName:text("<none>")
+	g_dxGUI.AuthorDisplayName:text(g_MapInfo.author or "<none>")
+	g_dxGUI.MapDisplayName:text(g_MapInfo.name or "<none>")
 	g_dxGUI.FileDisplayName:text(g_MapInfo.resname or "<none>")
-	g_dxGUI.nextdisplayName:text("<none>")
+	
+	if (g_MapOptions.ghostmode) then
+		g_dxGUI.ConfGDisplay:color(255,255,255,255)
+	else
+		g_dxGUI.ConfGDisplay:color(127,127,127,255)
+	end
+	if (g_MapOptions.respawn == "timelimit") then
+		g_dxGUI.ConfRDisplay:color(255,255,255,255)
+	else
+		g_dxGUI.ConfRDisplay:color(127,127,127,255)
+	end
+	if (g_MapOptions.vehicleweapons) then
+		g_dxGUI.ConfWDisplay:color(255,255,255,255)
+	else
+		g_dxGUI.ConfWDisplay:color(127,127,127,255)
+	end
 	
 	fadeCamera(true)
 	showHUD(false)
@@ -284,20 +314,20 @@ function initRace(vehicle, checkpoints, objects, pickups, mapoptions, ranked, du
 	setCloudsEnabled(g_GameOptions.cloudsenable)
 	setBlurLevel(g_GameOptions.blurlevel)
 	setPedCanBeKnockedOffBike(localPlayer, g_MapOptions.allowonfoot and g_MapOptions.falloffbike)
-
-	g_dxGUI.mapdisplay:visible(g_GameOptions.showmapname)
-	g_dxGUI.mapdisplayName:visible(g_GameOptions.showmapname)
-	g_dxGUI.authordisplay:visible(g_GameOptions.showmapname)
-	g_dxGUI.authordisplayName:visible(g_GameOptions.showmapname)
-	g_dxGUI.nextdisplay:visible(false)
-	g_dxGUI.nextdisplayName:visible(false)
-	-- g_dxGUI.FPSDisplay:visible(g_GameOptions.showmapname)
-	-- g_dxGUI.FPSDisplayCount:visible(g_GameOptions.showmapname)
-	-- g_dxGUI.PingDisplay:visible(g_GameOptions.showmapname)
-	-- g_dxGUI.PingDisplayCount:visible(g_GameOptions.showmapname)
+	
+	g_dxGUI.PingDisplay:visible(g_GameOptions.showmapname)
+	g_dxGUI.PingDisplayCount:visible(g_GameOptions.showmapname)
+	g_dxGUI.FPSDisplay:visible(g_GameOptions.showmapname)
+	g_dxGUI.FPSDisplayCount:visible(g_GameOptions.showmapname)
+	g_dxGUI.NextDisplay:visible(g_GameOptions.showmapname)
+	g_dxGUI.NextDisplayName:visible(g_GameOptions.showmapname)
+	g_dxGUI.AuthorDisplay:visible(g_GameOptions.showmapname)
+	g_dxGUI.AuthorDisplayName:visible(g_GameOptions.showmapname)
+	g_dxGUI.MapDisplay:visible(g_GameOptions.showmapname)
+	g_dxGUI.MapDisplayName:visible(g_GameOptions.showmapname)
 	g_dxGUI.FileDisplay:visible(g_GameOptions.showmapname)
 	g_dxGUI.FileDisplayName:visible(g_GameOptions.showmapname)
-
+	
 	-- checkpoints
 	local colorSeed = 10
 	for i,char in ipairs( { string.byte(g_MapInfo.name,1,g_MapInfo.name:len()) } ) do
@@ -305,9 +335,9 @@ function initRace(vehicle, checkpoints, objects, pickups, mapoptions, ranked, du
 	end
 	math.randomseed(colorSeed)  
 	cpColorRandom = { math.random(0,255), math.random(0,255), math.random(0,255) }
-
+	
 	g_Checkpoints = checkpoints
-
+	
 	-- pickups
 	local object
 	local pos
@@ -403,16 +433,16 @@ function updateOptions ( gameoptions, mapoptions )
 	setCloudsEnabled(g_GameOptions.cloudsenable)
 	setBlurLevel(g_GameOptions.blurlevel)
 
-	g_dxGUI.mapdisplay:visible(g_GameOptions.showmapname)
-	g_dxGUI.mapdisplayName:visible(g_GameOptions.showmapname)
-	g_dxGUI.authordisplay:visible(g_GameOptions.showmapname)
-	g_dxGUI.authordisplayName:visible(g_GameOptions.showmapname)
-	g_dxGUI.nextdisplay:visible(g_GameOptions.showmapname)
-	g_dxGUI.nextdisplayName:visible(g_GameOptions.showmapname)
-	-- g_dxGUI.FPSDisplay:visible(g_GameOptions.showmapname)
-	-- g_dxGUI.FPSDisplayCount:visible(g_GameOptions.showmapname)
-	-- g_dxGUI.PingDisplay:visible(g_GameOptions.showmapname)
-	-- g_dxGUI.PingDisplayCount:visible(g_GameOptions.showmapname)
+	g_dxGUI.PingDisplay:visible(g_GameOptions.showmapname)
+	g_dxGUI.PingDisplayCount:visible(g_GameOptions.showmapname)
+	g_dxGUI.FPSDisplay:visible(g_GameOptions.showmapname)
+	g_dxGUI.FPSDisplayCount:visible(g_GameOptions.showmapname)
+	g_dxGUI.NextDisplay:visible(g_GameOptions.showmapname)
+	g_dxGUI.NextDisplayName:visible(g_GameOptions.showmapname)
+	g_dxGUI.AuthorDisplay:visible(g_GameOptions.showmapname)
+	g_dxGUI.AuthorDisplayName:visible(g_GameOptions.showmapname)
+	g_dxGUI.MapDisplay:visible(g_GameOptions.showmapname)
+	g_dxGUI.MapDisplayName:visible(g_GameOptions.showmapname)
 	g_dxGUI.FileDisplay:visible(g_GameOptions.showmapname)
 	g_dxGUI.FileDisplayName:visible(g_GameOptions.showmapname)
 end
@@ -541,18 +571,18 @@ function updatePickups()
 end
 addEventHandler('onClientRender', root, updatePickups)
 
--- local fps = 0
--- addEventHandler("onClientPreRender", root,
--- 	function (msSinceLastFrame)
--- 		fps = (1 / msSinceLastFrame) * 1000
--- 	end
--- )
+local fps = 0
+addEventHandler("onClientPreRender", root,
+	function (msSinceLastFrame)
+		fps = (1 / msSinceLastFrame) * 1000
+	end
+)
 
--- function updateFPSAndPing()
--- 	g_dxGUI.FPSDisplayCount:text(tostring(math.floor(fps + 0.5)))
--- 	g_dxGUI.PingDisplayCount:text(tostring(getPlayerPing(localPlayer)))
--- end
--- setTimer(updateFPSAndPing, 1000, 0)
+function updateFPSAndPing()
+	g_dxGUI.FPSDisplayCount:text(tostring(math.floor(fps * 10) / 10))
+	g_dxGUI.PingDisplayCount:text(tostring(getPlayerPing(localPlayer)))
+end
+setTimer(updateFPSAndPing, 1000, 0)
 	
 addEventHandler('onClientColShapeHit', root,
 	function(elem)
@@ -1631,9 +1661,9 @@ addEventHandler('onClientResourceStop', resourceRoot,
 addEvent('onNextMapSet', true)
 addEventHandler('onNextMapSet', root,
 	function(mapName)
-		g_dxGUI.nextdisplayName:text(mapName)
-		g_dxGUI.nextdisplay:visible(g_GameOptions.showmapname)
-		g_dxGUI.nextdisplayName:visible(g_GameOptions.showmapname)
+		g_dxGUI.NextDisplayName:text(mapName)
+		g_dxGUI.NextDisplay:visible(g_GameOptions.showmapname)
+		g_dxGUI.NextDisplayName:visible(g_GameOptions.showmapname)
 	end
 )
 
@@ -1770,10 +1800,10 @@ end
 addEvent('onNextMapSet', true)
 addEventHandler('onNextMapSet', root,
 	function(mapName)
-		g_dxGUI.nextdisplayName:text(g_NextMapWhatsSet)
-		g_dxGUI.nextdisplayName:color(255, 255, 255, 255)
-		g_dxGUI.nextdisplay:visible(g_GameOptions.showmapname)
-		g_dxGUI.nextdisplayName:visible(g_GameOptions.showmapname)
+		g_dxGUI.NextDisplayName:text(g_NextMapWhatsSet)
+		g_dxGUI.NextDisplayName:color(255, 255, 255, 255)
+		g_dxGUI.NextDisplay:visible(g_GameOptions.showmapname)
+		g_dxGUI.NextDisplayName:visible(g_GameOptions.showmapname)
 	end
 )
 
